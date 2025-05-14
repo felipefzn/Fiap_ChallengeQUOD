@@ -16,5 +16,6 @@ namespace Fiap_ChallengeQUOD
 
         public IMongoCollection<BsonDocument> Biometrias => _database.GetCollection<BsonDocument>("biometrias");
         public IMongoCollection<BsonDocument> Documentos => _database.GetCollection<BsonDocument>("documentos");
+        public IMongoCollection<BsonDocument> Notificacoes => _database.GetCollection<BsonDocument>("notificacoes");
     }
 }

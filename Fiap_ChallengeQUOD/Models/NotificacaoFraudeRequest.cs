@@ -1,0 +1,28 @@
+﻿namespace Fiap_ChallengeQUOD.Models
+{
+    public class NotificacaoFraudeRequest
+    {
+        public string TransacaoId { get; set; }
+        public string TipoBiometria { get; set; }
+        public string TipoFraude { get; set; }
+        public DateTime DataCaptura { get; set; }
+        public DispositivoInfo Dispositivo { get; set; }
+        public List<string> CanalNotificacao { get; set; }
+        public string NotificadoPor { get; set; }
+        public MetadadosInfo Metadados { get; set; }
+    }
+
+    public class DispositivoInfo
+    {
+        public string Fabricante { get; set; }
+        public string Modelo { get; set; }
+        public string SistemaOperacional { get; set; }
+    }
+
+    public class MetadadosInfo
+    {
+        public double Latitude { get; set; }
+        public double Longitude { get; set; }
+        public string IpOrigem { get; set; }
+    }
+}

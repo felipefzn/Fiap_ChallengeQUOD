@@ -1,16 +1,17 @@
 ﻿using Fiap_ChallengeQUOD.Models;
 using Fiap_ChallengeQUOD.Utils;
 using MongoDB.Bson;
+using static Fiap_ChallengeQUOD.Services.ValidacaoImagemService;
 
 namespace Fiap_ChallengeQUOD.Services
 {
     public class DocumentoService
     {
         private readonly MongoDbContext _db;
-        private readonly ValidacaoImagemService _validador;
+        private readonly ValidacaoImagemsService _validador;
         private readonly NotificacaoClient _notificador;
 
-        public DocumentoService(MongoDbContext db, ValidacaoImagemService validador, NotificacaoClient notificador)
+        public DocumentoService(MongoDbContext db, ValidacaoImagemsService validador, NotificacaoClient notificador)
         {
             _db = db;
             _validador = validador;
@@ -27,6 +28,7 @@ namespace Fiap_ChallengeQUOD.Services
             {"tipo", "documento"},
             {"resultadoValidacao", resultado.FraudeDetectada ? "fraude" : "sucesso"},
             {"motivoFraude", resultado.MotivoFraude ?? ""},
+            {"referencia", resultado.Referencia},
             {"dataProcessamento", DateTime.UtcNow}
         };
 
