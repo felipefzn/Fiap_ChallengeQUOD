@@ -23,14 +23,14 @@ namespace Fiap_ChallengeQUOD.Services
             var resultado = _validador.ValidarImagem(req.ImagemBase64, req.Metadados);
 
             var registro = new BsonDocument
-        {
+            {
             {"idUsuario", req.IdUsuario},
             {"tipo", req.Tipo},
             {"resultadoValidacao", resultado.FraudeDetectada ? "fraude" : "sucesso"},
             {"motivoFraude", resultado.MotivoFraude ?? ""},
             {"referencia", resultado.Referencia},
             {"dataProcessamento", DateTime.UtcNow}
-        };
+            };
 
             await _db.Biometrias.InsertOneAsync(registro);
 

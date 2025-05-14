@@ -8,7 +8,6 @@ namespace Fiap_ChallengeQUOD.Services
         {
             public ResultadoValidacao ValidarImagem(string base64, Dictionary<string, string> metadados)
             {
-                // Simulação da validação (em produção, aplicar IA ou integrações)
                 var rnd = new Random();
                 bool fraude = rnd.Next(0, 4) == 0; // 25% chance
 
